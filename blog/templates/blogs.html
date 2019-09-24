@@ -1,0 +1,15 @@
+{% extends "header.html" %}
+
+{% block bloglink %}<li class="active"><a href="">Blog</a></li>{% endblock %}
+
+{% block title %}Blog{% endblock %}
+
+{% block content %}
+	<h1>Blogs</h1>
+
+	{% for blog in blogs.all %}
+		<a href="{% url 'blog_detail' blog.id %}">{{ blog.title }}</a>
+			{{ blog.pub_date_pretty }}
+		<p>{{ blog.summary|safe }}</p>
+	{% endfor %}
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "header.html" %}
+
+{% block bloglink %}<li class="active"><a href="../blog">Blog</a></li>{% endblock %}
+
+{% block title %}Blog{% endblock %}
+
+{% block content %}
+	  <h1>{{ blog.title }}</h1>
+      <p>{{ blog.pub_date }}</p>
+      <hr />
+      <br />
+      <br />
+      <p>{{ blog.body|safe }}</p>
+{% endblock %}
