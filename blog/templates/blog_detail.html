@@ -7,17 +7,18 @@
 {% block title %}Blog{% endblock %}
 
 {% block content %}
+	<div class="container">
 	  <h1>{{ blog.title }}</h1>
       <p>{{ blog.pub_date }}</p>
       <hr />
-      <br />
       <br />
       <p>{{ blog.body|safe }}</p>
 
       <div id="all_tags"><b>Tags:</b> </div>
 
       
-      <img src="{% static '/images/email.png' %}" width="25px" height="25px" alt="email icon"> <img src="{% static '/images/tweet.png' %}" width="25px" height="25px" alt="twitter icon">
+      <b>Contact Me: <button type="button" class="btn btn-link"><a href="mailto:robertgarza.cs@gmail.com?subject=Re: {{ blog.title }}"><img src="{% static '/images/email.png' %}" width="25px" height="25px" alt="email icon"></a></button> <button type="button" class="btn btn-link"><a href="https://twitter.com/RobertG51310477"><img src="{% static '/images/tweet.png' %}" width="25px" height="25px" alt="twitter icon"></a></button>
+    </div>
 {% endblock %}
 
 {% block js_content %}
@@ -25,10 +26,7 @@
       <script type="text/javascript">
       	var tags = {{ blog.all_tags|safe }};
       	for (var i = 0; i < tags.length; i++) {
-      		$("#all_tags").append('<a href="#">' + tags[i] + '</a>');
-      		if(i != tags.length-1){
-      			$("#all_tags").append(', ');
-      		}
+      		$("#all_tags").append('<button type="button" class="btn btn-link">' + tags[i] + '</button>');
       	}
       </script>
 {% endblock %}

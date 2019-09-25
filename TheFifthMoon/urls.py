@@ -25,5 +25,6 @@ urlpatterns = [
     path('', hm_view.homepage, name='homepage'),
     path('blog/', blog_view.allblogs, name='allblogs'),
     path('about/', hm_view.about, name='about'),
+    path('projects/', hm_view.projects, name='projects'),
     path('<int:blog_id>/', blog_view.blog_detail, name="blog_detail"),
 ] + static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
