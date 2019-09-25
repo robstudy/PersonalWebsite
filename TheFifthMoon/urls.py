@@ -17,10 +17,13 @@ from django.contrib import admin
 from django.urls import path
 from homepage import views as hm_view
 from blog import views as blog_view
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', hm_view.homepage, name='homepage'),
     path('blog/', blog_view.allblogs, name='allblogs'),
+    path('about/', hm_view.about, name='about'),
     path('<int:blog_id>/', blog_view.blog_detail, name="blog_detail"),
-]
+] + static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
