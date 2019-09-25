@@ -11,4 +11,20 @@
       <br />
       <br />
       <p>{{ blog.body|safe }}</p>
+
+      <div id="all_tags"><b>Tags:</b> </div>
+
+{% endblock %}
+
+{% block js_content %}
+      <!--script for tags-->
+      <script type="text/javascript">
+      	var tags = {{ blog.all_tags|safe }};
+      	for (var i = 0; i < tags.length; i++) {
+      		$("#all_tags").append('<a href="#">' + tags[i] + '</a>');
+      		if(i != tags.length-1){
+      			$("#all_tags").append(', ');
+      		}
+      	}
+      </script>
 {% endblock %}
