@@ -21,7 +21,7 @@
 									<div class="carousel-item">
 								{% endif %}
 								<a href="{% url 'blog_detail' blog.id %}">
-								<img class="d-block w-100" src="{% static '/images/cpp_logo.png' %}" alt="First slide">
+								<img class="d-block w-100" src="/static/images/{{ blog.get_image_name }}" alt="First slide">
 								</a>
 								<div class="carousel-caption d-none d-md-block">
 								<h3 style="color:black;">{{ blog.title }}</h3>
