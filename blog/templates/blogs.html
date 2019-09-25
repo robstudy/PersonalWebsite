@@ -1,15 +1,25 @@
 {% extends "header.html" %}
 
-{% block bloglink %}<li class="active"><a href="">Blog</a></li>{% endblock %}
+{% block bloglink %}<li class="nav-item active"><a class="nav-link" href="/blog">Blog</a></li>{% endblock %}
 
 {% block title %}Blog{% endblock %}
 
 {% block content %}
-	<h1>Blogs</h1>
-
-	{% for blog in blogs.all %}
-		<a href="{% url 'blog_detail' blog.id %}">{{ blog.title }}</a>
-			{{ blog.pub_date_pretty }}
-		<p>{{ blog.summary|safe }}</p>
-	{% endfor %}
+	<div class="container">
+		{% for blog in blogs.all %}
+		<div class="row">
+			<div class="col-10">
+				<div class="card">
+				<div class="card-body">
+				<a href="{% url 'blog_detail' blog.id %}"><img src="/static/images/{{ blog.get_image_name }}" class="img-thumbnail rounded float-left" width="85" height="85" style="margin-right: 10px;" alt="topic image"></a>
+				<a href="{% url 'blog_detail' blog.id %}"><h5 class="card-title">{{ blog.title }}</a>
+				{{ blog.pub_date_pretty }}</h5>
+				<p class="card-text">{{ blog.summary|safe }} .....</p>	
+				</div><!--/card-body-->
+				</div><!--/card-->			
+			</div>
+			<div class="col-2"></div>
+		</div>
+		{% endfor %}
+	</div>
 {% endblock %}
