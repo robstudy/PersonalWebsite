@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import Blog
 
 def allblogs(request):
-	blogs = Blog.objects
+	blogs = Blog.objects.order_by('-pub_date')
 	return render(request, 'blogs.html', {'blogs': blogs})
 
 def blog_detail(request, blog_id):
