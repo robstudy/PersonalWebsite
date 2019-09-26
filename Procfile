@@ -1,1 +1,1 @@
-web: gunicorn django_project.wsgi
+web: gunicorn thefifthmoon.wsgi --log-level=info --log-file -
