@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from homepage import views as hm_view
 from blog import views as blog_view
+from projects import views as projects_view
 from django.conf.urls.static import static
 from django.conf import settings
 import re
@@ -26,7 +27,7 @@ urlpatterns = [
     path('', hm_view.homepage, name='homepage'),
     path('blog/', blog_view.allblogs, name='allblogs'),
     path('about/', hm_view.about, name='about'),
-    path('projects/', hm_view.projects, name='projects'),
+    path('projects/', projects_view.projects, name='projects'),
     path('<int:blog_id>/', blog_view.blog_detail, name="blog_detail"),
     path('blog/tag/<slug:blog_tag>/', blog_view.blog_tags, name="blog_tag"),
 ] + static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)

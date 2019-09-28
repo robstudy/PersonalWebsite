@@ -3,10 +3,7 @@ from blog.models import Blog
 
 def homepage(request):
 	blogs = Blog.objects.order_by('-pub_date')
-	return render(request, 'homepage.html', {'blogs': blogs})
+	return render(request, 'homepage/homepage.html', {'blogs': blogs})
 
 def about(request):
-	return render(request, 'about.html')
-
-def projects(request):
-	return render(request, 'projects.html')
+	return render(request, 'homepage/about.html')

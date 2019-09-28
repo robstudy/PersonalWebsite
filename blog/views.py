@@ -3,13 +3,13 @@ from .models import Blog
 
 def allblogs(request):
 	blogs = Blog.objects.order_by('-pub_date')
-	return render(request, 'blogs.html', {'blogs': blogs})
+	return render(request, 'blog/blogs.html', {'blogs': blogs})
 
 def blog_detail(request, blog_id):
     blog_detail = get_object_or_404(Blog, pk=blog_id)
-    return render(request, 'blog_detail.html', {'blog': blog_detail})
+    return render(request, 'blog/blog_detail.html', {'blog': blog_detail})
 
 def blog_tags(request, blog_tag):
 	search_tag = blog_tag.replace('-', ' ')
 	blogs = Blog.objects.filter(tags__icontains=search_tag).order_by('-pub_date')
-	return render(request, 'blogs.html', {'blogs': blogs})
+	return render(request, 'blog/blogs.html', {'blogs': blogs})

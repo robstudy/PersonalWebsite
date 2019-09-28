@@ -1,7 +1,7 @@
 from django.db import models
 
 class Project(models.Model):
-	name = models.CharField(max_length=255)
+	title = models.CharField(max_length=255)
 	pic = models.CharField(max_length=25)
 	github = models.CharField(max_length=255)
 	demo = models.CharField(max_length=255)
@@ -10,3 +10,5 @@ class Project(models.Model):
 
 	def pub_date_pretty(self):
 		return self.pub_date.strftime('%b %e, %Y')
+	def __str__(self):
+		return self.title
