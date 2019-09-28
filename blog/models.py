@@ -22,7 +22,7 @@ class Blog(models.Model):
     def get_image_name(self):
     	#reference static/images for list
     	alltags = self.all_tags()
-    	if 'c++' in alltags:
+    	if 'cpp' in alltags:
     		return 'cpp_logo.png'
     	elif 'python' in alltags:
     		return 'python.png'
