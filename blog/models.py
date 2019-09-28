@@ -30,6 +30,8 @@ class Blog(models.Model):
     		return 'js.png'
     	elif 'book' in alltags:
     		return 'book.jpg'
+    	elif 'software engineering' in alltags:
+    		return 'cs_bg.jpg'
     	else:
     		return 'random.png'
     def __str__(self):

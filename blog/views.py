@@ -10,5 +10,6 @@ def blog_detail(request, blog_id):
     return render(request, 'blog_detail.html', {'blog': blog_detail})
 
 def blog_tags(request, blog_tag):
-	blogs = Blog.objects.filter(tags__icontains=blog_tag).order_by('-pub_date')
+	search_tag = blog_tag.replace('-', ' ')
+	blogs = Blog.objects.filter(tags__icontains=search_tag).order_by('-pub_date')
 	return render(request, 'blogs.html', {'blogs': blogs})
