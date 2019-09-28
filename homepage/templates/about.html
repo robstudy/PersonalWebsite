@@ -1,7 +1,21 @@
 {% extends "header.html" %}
 
+{% load static %}
+
 {% block aboutlink %}<li class="nav-item active"><a class="nav-link" href="">About</a></li>{% endblock %}
 
 {% block content %}
-	<h1>About Me</h1>
+
+	<div class="container">
+		<hr />
+		<p>My name is Robert Garza. I was born and raised in Fresno, California, and I have a love and passion for computer programming. In an effort to motivate myself to put out new work and continue expanding my knowledge I have decided to create and maintain this little website, which for now will focus on development in Python, C++, and JavaScript languages. Most of what I post will primarily focus on topics of the web stack, algorithms, software engineering, and from time to time machine learning and AI subjects.</p>
+		<p>I graduated from CSU Fresno in May, 2019 with a B.S. in Computer Science and a Minor in Mathematics. Previously I completed an A.S. in Computer Science at Clovis Community College in May, 2017, and an A.S. in Computer Information Systems at Fresno Community College in May, 2016.</p>
+		<p>I’m also a big fan of animated media. You may find some peculiar icons on this site that are images from one of my favorite series; and the name of this site is inspired by another. If you have any questions, want to chat, or have any corrections or tips for me, please feel free to contact me.</p> 
+
+		<h2>Contact</h2>
+		<hr />
+		<p>Email: robertgarza.cs@gmail.com <button type="button" class="btn btn-link"><a href="mailto:robertgarza.cs@gmail.com?subject=Re: Hello!"><img src="{% static '/images/email.png' %}" width="25px" height="25px" alt="email icon"></a></button><p>
+		<p>Twitter: @RobertG51310477 <button type="button" class="btn btn-link"><a target="_blank" rel="noopener noreferrer" href="https://twitter.com/RobertG51310477"><img src="{% static '/images/tweet.png' %}" width="25px" height="25px" alt="twitter icon"></a></button></p>
+		<p>LinkedIn: www.linkedin.com/in/robertgarza88/ <button type="button" class="btn btn-link"><a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/robertgarza88/"><img src="{% static '/images/linkedin.png' %}" width="25px" height="25px" alt="LinkedIn icon"></a></button></p>
+	</div>
 {% endblock %}
