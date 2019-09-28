@@ -30,4 +30,4 @@ urlpatterns = [
     path('projects/', projects_view.projects, name='projects'),
     path('<int:blog_id>/', blog_view.blog_detail, name="blog_detail"),
     path('blog/tag/<slug:blog_tag>/', blog_view.blog_tags, name="blog_tag"),
-] + static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
+] + static(settings.STATIC_URL, document_root = settings.IMG_URL)
