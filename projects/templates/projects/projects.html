@@ -2,8 +2,30 @@
 
 {% block title %}Projects{% endblock %}
 
+{% load static %}
+
 {% block projectslink %}<li class="nav-item active"><a class="nav-link" href="">Projects</a></li>{% endblock %}
 
 {% block content %}
-	<h1>Projects</h1>
+	<br />
+	<div class="container">
+		{% for project in projects.all %}
+			{% if forloop.counter0|divisibleby:3 %}
+			<div class="row">
+			{% endif %}
+			<div class="col-4">
+				<div class="card">
+					<a href="/projects/{{project.title_slug}}"><img class="card-img-top img-fluid" src="{% get_static_prefix %}project_images/{{ project.pic}}" att="{{project.title}} image"></a>
+					<div class="card-body">
+						<p class="card-text text-center"><b>{{project.title}}</b></p>
+						<p class="card-text">Updated: {{project.pub_date_pretty}}</p>
+					</div>
+				</div>
+			</div>
+			{% if forloop.counter|divisibleby:3 or forloop.last %}
+			</div><!--/row-->
+			<hr />
+			{% endif %}
+		{% endfor %}
+	</div>
 {% endblock %}
