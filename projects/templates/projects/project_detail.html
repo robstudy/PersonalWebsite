@@ -1,0 +1,30 @@
+{% extends "homepage/header.html" %}
+
+{% load static %}
+
+{% block projectslink %}<li class="nav-item active"><a class="nav-link" href="">Projects</a></li>{% endblock %}
+
+{% block content %}
+	<div class="container">
+		<br />
+		<br />
+		<hr />
+		<div class="container">
+			<div class="row">
+				<div class="col-6">
+					<p><b>Project:</b> {{ project.title }}</p>
+					<hr />
+					<p><b>GitHub:</b> <a href="{{project.github}}">{{project.github}}</a></p>
+					<hr />
+					<p><b>Demo:</b> <a href="{{project.demo}}">{{project.demo}}</a></p>
+					<hr />
+					<p><b>Description:</b> {{ project.description|safe}}</p>
+					<hr />
+				</div>
+				<div class="col-6">
+					<img src="{% get_static_prefix %}project_images/{{ project.pic}}" width="400px;" height="400px;">
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
