@@ -2,7 +2,8 @@ from django.db import models
 import re
 
 class Blog(models.Model):
-    title = models.CharField(max_length=255)
+    title = models.CharField(max_length=200)
+    slug_name = models.SlugField(max_length=255, unique=True)
     tags = models.CharField(max_length=255)
     pub_date = models.DateTimeField()
     body = models.TextField()
@@ -16,9 +17,6 @@ class Blog(models.Model):
     	for i in range(len(tag_list)):
     		tag_list[i] = tag_list[i].strip()
     	return tag_list
-    def title_slug(self):
-    	slug_title = self.title.replace(' ', '-')
-    	return slug_title
     def get_image_name(self):
     	#reference static/images for list
     	alltags = self.all_tags()

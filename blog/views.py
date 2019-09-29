@@ -6,8 +6,7 @@ def allblogs(request):
 	return render(request, 'blog/blogs.html', {'blogs': blogs})
 
 def blog_detail(request, blog_title):
-	unslug_title = blog_title.replace('-', ' ')
-	blog_detail = get_object_or_404(Blog, title=unslug_title)
+	blog_detail = get_object_or_404(Blog, slug_name=blog_title)
 	return render(request, 'blog/blog_detail.html', {'blog': blog_detail})
 
 def blog_tags(request, blog_tag):

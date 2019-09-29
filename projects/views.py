@@ -6,6 +6,5 @@ def projects(request):
 	return render(request, 'projects/projects.html', {'projects': projects})
 
 def project_detail(request, project_name):
-	name = project_name.replace('-', ' ')
-	project = get_object_or_404(Project, title=name)
+	project = get_object_or_404(Project, slug_name=project_name)
 	return render(request, 'projects/project_detail.html', {'project': project})
