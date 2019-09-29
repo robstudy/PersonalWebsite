@@ -1,1 +1,1 @@
-web: gunicorn thefifthmoon.wsgi --log-level=info --log-file -
+web: gunicorn thefifthmoon.wsgi --log-file -
