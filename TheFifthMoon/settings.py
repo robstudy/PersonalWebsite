@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import django_heroku
 
 #.env
 from dotenv import load_dotenv
@@ -131,3 +132,5 @@ STATIC_URL = '/static/'
 
 IMG_ROOT = os.path.join(BASE_DIR, 'images')
 IMG_URL = '/images/'
+
+django_heroku.settings(locals())
