@@ -14,10 +14,10 @@
 				<div class="container">
 				<div class="row">
 				<div class="col-2">
-					<a href="{% url 'blog_detail' blog.id %}"><img src="/static/images/{{ blog.get_image_name }}" class="img-thumbnail img-fluid rounded float-left" style="margin-right: 1em;" alt="topic image"></a>
+					<a href="/blog/{{blog.title_slug}}"><img src="/static/images/{{ blog.get_image_name }}" class="img-thumbnail img-fluid rounded float-left" style="margin-right: 1em;" alt="topic image"></a>
 				</div><!--/col-2-->
 				<div class="col-10">
-					<a href="{% url 'blog_detail' blog.id %}"><h5 class="card-title">{{ blog.title }}</a>
+					<a href="/blog/{{blog.title_slug}}"><h5 class="card-title">{{ blog.title }}</a>
 					{{ blog.pub_date_pretty }}</h5>
 					<p class="card-text">{{ blog.summary|safe }} .....</p>	
 				</div><!--/col-10-->

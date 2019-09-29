@@ -26,7 +26,7 @@
       <script type="text/javascript">
       	var tags = {{ blog.all_tags|safe }};
       	for (var i = 0; i < tags.length; i++) {
-      		$("#all_tags").append('<button type="button" class="btn btn-link"><a href="/blog/tag/' + tags[i].replace(' ', '-') + '">' + tags[i] + '</a></button>');
+      		$("#all_tags").append('<button type="button" class="btn btn-link"><a href="/blogs/tag/' + tags[i].replace(' ', '-') + '">' + tags[i] + '</a></button>');
       	}
       </script>
 {% endblock %}

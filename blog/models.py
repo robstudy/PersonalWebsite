@@ -16,9 +16,9 @@ class Blog(models.Model):
     	for i in range(len(tag_list)):
     		tag_list[i] = tag_list[i].strip()
     	return tag_list
-    def contains_tag(self, tag_term):
-    	alltags = self.all_tags()
-    	return tag_term in alltags
+    def title_slug(self):
+    	slug_title = self.title.replace(' ', '-')
+    	return slug_title
     def get_image_name(self):
     	#reference static/images for list
     	alltags = self.all_tags()
