@@ -10,5 +10,8 @@ class Project(models.Model):
 
 	def pub_date_pretty(self):
 		return self.pub_date.strftime('%b %e, %Y')
+	def title_slug(self):
+		slug_title = self.title.replace(' ', '-')
+		return slug_title
 	def __str__(self):
 		return self.title
