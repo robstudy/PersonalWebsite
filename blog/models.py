@@ -28,7 +28,7 @@ class Blog(models.Model):
     		return 'python.png'
     	elif 'javascript' in alltags:
     		return 'js.png'
-    	elif 'book' in alltags:
+    	elif 'book' in alltags or 'books' in alltags:
     		return 'book.jpg'
     	else:
     		return 'random.png'
