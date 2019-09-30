@@ -30,7 +30,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['thefifthmoon.xyz', 'www.thefifthmoon.xyz']
+ALLOWED_HOSTS = ['thefifthmoon.xyz', 'www.thefifthmoon.xyz', 'https://thefifthmoon.herokuapp.com/']
 
 
 # Application definition
@@ -123,6 +123,22 @@ USE_L10N = True
 
 USE_TZ = True
 
+#Logging per https://stackoverflow.com/questions/45391082/heroku-server-error-500-when-debug-false-whitenoise-could-not-find-style-c
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+             'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG'),
+        },
+    },
+}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
