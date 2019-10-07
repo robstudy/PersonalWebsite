@@ -1,5 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Blog
+#for json response
+from django.core import serializers
+from django.http.response import JsonResponse
 
 def allblogs(request):
 	blogs = Blog.objects.order_by('-pub_date')
@@ -13,3 +16,8 @@ def blog_tags(request, blog_tag):
 	search_tag = blog_tag.replace('-', ' ')
 	blogs = Blog.objects.filter(tags__icontains=search_tag).order_by('-pub_date')
 	return render(request, 'blog/blogs.html', {'blogs': blogs})
+
+def get_all_blogs_serialized(request):
+	blogs = Blog.objects.all()
+	serialized_blogs = serializers.serialize('python', blogs)
+	return JsonResponse(serialized_blogs, safe=False)
