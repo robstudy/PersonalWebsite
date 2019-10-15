@@ -3,6 +3,8 @@ from .models import Blog
 #for json response
 from django.core import serializers
 from django.http import HttpResponse
+#Q allows or/and queries 
+from django.db.models import Q
 
 def allblogs(request):
 	blogs = Blog.objects.order_by('-pub_date')
@@ -21,3 +23,12 @@ def get_all_blogs_serialized(request):
 	blogs = Blog.objects.order_by('-pub_date')
 	serialized_blogs = serializers.serialize('json', blogs)
 	return HttpResponse(serialized_blogs, content_type="text/json-comment-filtered")
+
+def get_filtered_blogs(request):
+	if request.GET.get('search'):
+		filtered = request.GET['search']
+		blogs = Blog.objects.filter(Q(title__icontains=filtered) | Q(tags__icontains=filtered)).order_by('-pub_date')
+		return render(request, 'blog/blogs.html', {'blogs': blogs})
+	else:
+		blogs = Blog.objects.order_by('-pub_date')
+		return render(request, 'blog/blogs.html', {'blogs': blogs})
