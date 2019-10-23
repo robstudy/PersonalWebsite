@@ -19,5 +19,5 @@ urlpatterns = [
     path('projects/<slug:project_name>/', projects_view.project_detail, name="project_detail"),
     path('blog/<slug:blog_title>/', blog_view.blog_detail, name="blog_detail"),
     path('blogs/tag/<slug:blog_tag>/', blog_view.blog_tags, name="blog_tag"),
-    path('blogs/search/', blog_view.get_filtered_blogs, name="blog_filter"),
+    path('blogs/query/', blog_view.get_filtered_blogs, name="blog_filter"),
 ] + static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)

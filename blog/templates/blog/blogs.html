@@ -5,8 +5,8 @@
 {% block bloglink %}<li class="nav-item active"><a class="nav-link" href="/blog">Blog</a></li>{% endblock %}
 
 {% block search %}
-	<form class="form-inline float-right" action="/blogs/search/" method="get">
-	   <input class="form-control mr-sm-2 float-right" type="search" placeholder="Search" aria-label="Search" name="search">
+	<form class="form-inline float-right" action="/blogs/query/" method="get">
+	   <input class="form-control mr-sm-2 float-right" type="search" placeholder="Search" aria-label="Search" name="terms">
 	   <button class="btn btn-outline-success my-2 my-sm-0 float-right" type="submit">Search</button>
 	</form>
 {% endblock %}

@@ -25,8 +25,8 @@ def get_all_blogs_serialized(request):
 	return HttpResponse(serialized_blogs, content_type="text/json-comment-filtered")
 
 def get_filtered_blogs(request):
-	if request.GET.get('search'):
-		filtered = request.GET['search']
+	if request.GET.get('terms'):
+		filtered = request.GET['terms']
 		blogs = Blog.objects.filter(Q(title__icontains=filtered) | Q(tags__icontains=filtered)).order_by('-pub_date')
 		return render(request, 'blog/blogs.html', {'blogs': blogs})
 	else:
