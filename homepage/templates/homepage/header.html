@@ -12,7 +12,7 @@
 <body>
 
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-	    <a class="navbar-brand" href="/">The Fifth Moon</a>
+	    <a class="navbar-brand" href="{% url 'homepage' %}">The Fifth Moon</a>
 	    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 	    	<span class="navbar-toggler-icon"></span>
 	    </button>
@@ -20,17 +20,17 @@
 		    <ul class="navbar-nav">
 		      {% block bloglink %}
 		      	<li class="nav-item">
-		      		<a class="nav-link" href="/blog">Blog</a>
+		      		<a class="nav-link" href="{% url 'allblogs' %}">Blog</a>
 		      	</li>
 		      {% endblock %}
 		      {% block projectslink %}
 		      	<li class="nav-item">
-		      		<a class="nav-link" href="/projects">Projects</a>
+		      		<a class="nav-link" href="{% url 'projects' %}">Projects</a>
 		      	</li>
 		      {% endblock %}
 		      {% block aboutlink %}
 		      	<li class="nav-item">
-		      		<a class="nav-link" href="/about">About</a>
+		      		<a class="nav-link" href="{% url 'about' %}">About</a>
 		      	</li>
 		      {% endblock %}
 		    </ul>
