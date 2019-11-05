@@ -2,17 +2,21 @@
 """
 from django.contrib import admin
 from django.urls import path
-from homepage import views as hm_view
-from blog import views as blog_view
-from projects import views as projects_view
 from django.conf.urls.static import static
 from django.conf import settings
-import re
+
+from homepage import views as hm_view
+from blog import views as blog_view
+from blog.api_views import BlogList
+from projects import views as projects_view
+
+import rest_framework
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', hm_view.homepage, name='homepage'),
     path('blog/', blog_view.allblogs, name='allblogs'),
+    path('api/v1/blogs/', BlogList.as_view()),
     path('api/allblogs/', blog_view.get_all_blogs_serialized, name="get_json_blogs"),
     path('about/', hm_view.about, name='about'),
     path('projects/', projects_view.projects, name='projects'),
