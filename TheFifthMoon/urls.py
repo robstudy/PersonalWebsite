@@ -17,7 +17,6 @@ urlpatterns = [
     path('', hm_view.homepage, name='homepage'),
     path('blog/', blog_view.allblogs, name='allblogs'),
     path('api/v1/blogs/', BlogList.as_view()),
-    path('api/allblogs/', blog_view.get_all_blogs_serialized, name="get_json_blogs"),
     path('about/', hm_view.about, name='about'),
     path('projects/', projects_view.projects, name='projects'),
     path('projects/<slug:project_name>/', projects_view.project_detail, name="project_detail"),
