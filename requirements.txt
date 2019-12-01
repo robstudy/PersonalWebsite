@@ -16,4 +16,5 @@ psutil==5.4.2
 pycairo==1.16.2
 pycups==1.9.73
 pycurl==7.43.0.1
+django-froala-editor==3.0.6
 

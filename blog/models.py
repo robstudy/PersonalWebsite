@@ -1,4 +1,5 @@
 from django.db import models
+from froala_editor.fields import FroalaField
 import re
 
 class Blog(models.Model):
@@ -6,7 +7,7 @@ class Blog(models.Model):
     slug_name = models.SlugField(max_length=255, unique=True)
     tags = models.CharField(max_length=255)
     pub_date = models.DateTimeField()
-    body = models.TextField()
+    body = FroalaField()
  
     def summary(self):
         return self.body[:100]
