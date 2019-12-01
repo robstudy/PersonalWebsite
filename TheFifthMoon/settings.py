@@ -20,7 +20,6 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]', 'thefifthmoon.xyz', 'www.thefifthmoon.xyz', 'https://thefifthmoon.herokuapp.com/']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -39,6 +38,7 @@ INSTALLED_APPS = [
     'rest_framework',
     #text editor 
     'froala_editor',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -77,6 +77,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'TheFifthMoon.wsgi.application'
 
+#Editor Director
+CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
 
 # Database
 
