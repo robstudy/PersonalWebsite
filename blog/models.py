@@ -32,6 +32,10 @@ class Blog(models.Model):
     		return 'js.png'
     	elif 'book' in alltags or 'books' in alltags:
     		return 'book.jpg'
+    	elif 'machine learning' in alltags or 'artificial intellegence' in alltags:
+    		return 'ml-ai.png'
+    	elif 'database' in alltags:
+    		return 'database.png'
     	else:
     		return 'random.png'
     def __str__(self):
