@@ -5,10 +5,24 @@ from django.core import serializers
 from django.http import HttpResponse
 #Q allows or/and queries 
 from django.db.models import Q
+#Paginator
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def allblogs(request):
 	blogs = Blog.objects.order_by('-pub_date')
-	return render(request, 'blog/blogs.html', {'blogs': blogs})
+	page = request.GET.get('page', 1)
+
+	#set limit per page
+	paginator = Paginator(blogs, 10)
+
+	try:
+		return_blogs = paginator.page(page)
+	except PageNotAnInteger:
+		return_blogs = paginator.page(1)
+	except EmptyPage:
+		return_blogs = paginator.page(paginator.num_pages)
+
+	return render(request, 'blog/blogs.html', {'blogs': return_blogs})
 
 def blog_detail(request, blog_title):
 	blog_detail = get_object_or_404(Blog, slug_name=blog_title)

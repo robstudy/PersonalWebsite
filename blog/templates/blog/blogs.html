@@ -15,7 +15,7 @@
 {% block content %}
 
 	<div class="container">
-		{% for blog in blogs.all %}
+		{% for blog in blogs %}
 		<div class="row">
 			<div class="col-10">
 				<div class="card">
@@ -39,4 +39,30 @@
 		</div>
 		{% endfor %}
 	</div>
+
+	{% if blogs.has_other_pages %}
+	<br />
+	<br />
+	<div class="container">
+		<ul class="pagination">
+			{% if blogs.has_previous %}
+				<li class="page-item"><a class="page-link" href="?page={{ blogs.previous_page_number }}">&laquo;</a></li>
+			{% else %}
+				<li class="page-item disabled"><a class="page-link" href="#">&laquo;</a></li>
+			{% endif %}
+			{% for i in blogs.paginator.page_range %}
+				{% if blogs.number == i %}
+					<li class="page-item active"><a class="page-link" href="#" onclick="return false;">{{ i }} <span class="sr-only">(current)</span></a></li>
+				{% else %}
+					<li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+				{% endif %}
+			{% endfor %}
+			{% if blogs.has_next %}
+				<li class="page-item"><a class="page-link" href="?page={{ blogs.next_page_number }}">&raquo;</a></li>
+			{% else %}
+				<li class="page-item disabled"><a class="page-link" href="#">&raquo;</a></li>
+			{% endif %}
+		</ul>
+	</div>
+	{% endif %}
 {% endblock %}
